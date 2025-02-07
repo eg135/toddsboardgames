@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: center; /* Ortaya al */
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    position: relative; /* Arama çubuğunu sağda tutmak için */
+}
+
+.logo {
+    font-family: 'Pacifico', cursive; /* Wistful benzeri font */
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    flex-grow: 1; /* Başlık alanını genişlet */
+}
+
+.search-bar {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    position: absolute;
+    right: 20px; /* Sağ üst köşeye sabitle */
+}
