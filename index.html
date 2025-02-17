@@ -5,14 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todd's Board Games</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Üst Menü -->
     <header>
+        <button id="menu-btn">☰</button>
         <h1 class="logo">Todd's Board Games</h1>
-        <input type="text" class="search-bar" placeholder="Search...">
+        <input type="text" id="search-bar" placeholder="Search...">
     </header>
 
+    <!-- Kategori Filtresi -->
+    <aside id="filter-menu">
+        <h2>Categories</h2>
+        <label><input type="checkbox" value="Card"> Card</label>
+        <label><input type="checkbox" value="Coop"> Coop</label>
+        <label><input type="checkbox" value="Comp"> Comp</label>
+        <label><input type="checkbox" value="Dice"> Dice</label>
+        <label><input type="checkbox" value="Tile Placement"> Tile Placement</label>
+        <label><input type="checkbox" value="Word"> Word</label>
+        <label><input type="checkbox" value="Gum"> Gum</label>
+        <label><input type="checkbox" value="Party"> Party</label>
+        <button id="apply-filters">Apply Filters</button>
+    </aside>
+    
+    <!-- Oyun Listesi -->
+    <main id="game-list">
+        <!-- JavaScript ile eklenecek -->
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
