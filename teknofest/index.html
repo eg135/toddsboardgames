@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyun Seçimi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .search-container {
+            margin: 20px;
+        }
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+        }
+        .game-box {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" class="search-box" id="searchBox" placeholder="Oyun ara...">
+    </div>
+    <div class="container" id="gameContainer"></div>
+    <script>
+        const games = [
+            "101 DALMATIONS GAME", "12 DAYS", "1ST AND GOAL", "4 STRIKE", "5 TRIBES", "500 PIECE SUPERMARIO PUZZLE", "7 DRAGONS", "7 HOW TO HOST A MURDER EPISODE 7", "ALCHEMIST", "ALHAMBRA X2", "ALIEN HOTSHOT", "ANKH", "ANTIQUITY", "APPLES TO APPLES", "AQUALIN", "ARKHAM HORROR CARDS", "ARKHAM HORROR KINGS PORT EXPANSION", "ARKHAM HORROR X3", "ASCENSION", "ASCENSION CHRONICLE OF THE GODSLAYER", "ASHES RISE OF THE PHOENIX FORM", "ATTACK THE DARKNESS", "AUTOBAHN", "AVALON", "AZUL x4", "BABYLON", "BACKGAMMON AND ACEY DUECY", "BATTLE OF DURAK", "BATTLE SHEEP FLOCK TO GREENER PASTURES", "BATTLESHIP x16", "BATTLESTAR GALACTICA X4", "BEARS VS BABIES", "BETRAYAL AT HOUSE ON THE HILL x2", "BILLIONAIRE", "BINGO", "BLOCK AND KEY", "BOTANIK", "BOTTLE TOPS", "BOULDERDASH", "BUZZ WORD", "CABBIE", "CALISTO", "CAN'T CATCH HARRY", "CANVASS FINISHING TOUCH EXPANSION", "CAPTAIN SONAR", "CARCASSONE X4", "CARDS AGAINST HUMANITY X2", "CASCADITO", "CASTLES IN THE SEA", "CAT IN THE BOX", "CATAN X4", "CENTEPEDE", "CHAOSMOS", "CHECK OUT", "CHEERS", "CHESS", "CINQO LINKO", "CLANK IN SPACE!", "CLANK!", "CLEAR THE DECKS", "CLUE SECRETS AND SPIES", "CLUE X8", "CODE NAMES", "CONSPIRACY", "CORSCO CANN", "COSMIC FROG", "CREATURE COMFORTS", "CUT THROAT CAVERNS", "D&D ESSENTIALS KIT", "DARKEST NIGHT 2ND EDITION", "DAYBREAK", "DC - CRISIS", "DC DECK BUILDING HEROES UNITE EXPANSION", "DEAD OF WINTER X2", "DEAD PANIC", "DEALERS CHOICE", "DEALING WITH MURDER", "DECEPTION MURDER IN HONG KONG", "DESCENT JOURNEY", "DETECTIVE", "DICE MANOR", "DIPLOMACY", "DIXIT", "DOMINOES", "DON'T MESS WITH KTHULU", "DON'T PANIC", "DRAGONLANCE WARRIORS OF CRINN", "DUKE", "DUNGEONS & DRAGONS X2", "ELDER SIGN", "ELECTRONIC AIR HOCKEY", "EMERGENCY", "EPIC SPELLS WAR OF THE BATTLE WIZARDS", "ETERNAL PALACE", "EVERDELL", "EVOLUTION", "EX LIBRIS", "FACTS IN FIVE", "FALLEN LAND A POST APOCOLYPTIC BOARD GAME 2ND EDITION", "FALLEN LAND DESCENDENTS", "FANTASY REALMS", "FIREFLY X2", "FLASHPOINT", "FROGGER", "GAME OF THRONES TRIVIA", "GHOSTS !", "GIRL TALK", "GRACIAS", "GUARDIANS OF THE GALAXY GEAR UP & ROCK OUT", "GUESS WHO", "GUESSTURES", "HAMLET", "HARRY POTTER - HOGWARTS BATTLE", "HEAVENS OF OLYMPUS", "HERO BRIGADE", "HEX HEX", "HI Q", "HIPPOCRATES X2", "HOG WILD FOR WEALTH", "HOLLYWOOD 1947", "HONEY BUZZ", "HONEY BUZZ FALL FLAVORS", "HONEY BUZZ FALL FLAVORS EXPANSION", "HORRIFIED", "HOW TO HOST A MURDER", "HYSTERIA", "I AM THE BOSS", "IMOTEPH DUAL", "IN THE HALL OF THE MOUNTAIN KING", "INCAN GOLD", "IQ BRAIN TRAIN GAME", "IRRATIONAL GAME", "ISS VANGUARD", "ISS VANGUARD CLOSE ENCOUNTERS", "ISS VANGUARD LOST FLEET", "JAIPUR", "JENGA", "JEOPARDY", "KAIRO x2", "KEEP THE HEROES OUT", "KEYFORGE", "KILL DR. LUCKY", "KILLER BUNNIES AND THE QUEST OF THE MAGIC THERMOS X2", "KING OF TOKYO", "KING OF TOKYO POWER UP EXPANSION", "KINGDOMS", "KUTNA HORA", "LANTERNS", "LAST NIGHT ON EARTH", "LEGEND OF THE 5 RINGS CARD GAME", "LEGENDARY"
+        ];
+        
+        const container = document.getElementById("gameContainer");
+        const searchBox = document.getElementById("searchBox");
+        const selectedGames = {};
+        
+        function renderGames(filter = "") {
+            container.innerHTML = "";
+            games.filter(game => game.toLowerCase().includes(filter.toLowerCase())).forEach(game => {
+                const div = document.createElement("div");
+                div.classList.add("game-box");
+                div.textContent = game;
+                div.style.backgroundColor = selectedGames[game] || "blue";
+                div.addEventListener("click", function() {
+                    selectedGames[game] = selectedGames[game] === "red" ? "blue" : "red";
+                    this.style.backgroundColor = selectedGames[game];
+                });
+                container.appendChild(div);
+            });
+        }
+        
+        searchBox.addEventListener("input", (e) => renderGames(e.target.value));
+        renderGames();
+    </script>
+</body>
+</html>
